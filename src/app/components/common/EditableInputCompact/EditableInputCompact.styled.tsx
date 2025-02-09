@@ -25,4 +25,5 @@ export const HeaderText = styled.div`
   color: var(--text-strong-950);
   font-weight: 500;
   line-height: 1.75rem;
+  text-transform: capitalize;
 `;

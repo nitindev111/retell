@@ -28,7 +28,7 @@ export default function Header({ metaData: { id, lastSavedAt } }) {
             • Estimated Latency: 1100-1250ms
             <Image src="/clock.svg" width={12} height={12} alt="clock" />
           </SubHeaderItem>
-          {/* <SubHeaderItem>• Auto Saved At :{lastSavedAt}</SubHeaderItem> */}
+          <SubHeaderItem>• Auto Saved At :{lastSavedAt}</SubHeaderItem>
         </SubHeader>
       </Head>
     </HeaderContainer>

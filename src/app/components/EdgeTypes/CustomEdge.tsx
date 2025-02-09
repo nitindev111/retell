@@ -43,8 +43,8 @@ export default function CustomEdge({
         <Image
           src="./delete.svg"
           alt="delete"
-          width={12}
-          height={12}
+          width={24}
+          height={24}
           style={{
             position: "absolute",
             transform: `translate(-50%, -50%) translate(${labelX}px,${labelY}px)`,

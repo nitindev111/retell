@@ -77,7 +77,10 @@ function FlowCanvas() {
         label: type,
         edges: [
           {
-            condition: "this is some transtion node",
+            condition:
+              type === "callTransfer"
+                ? "transfer failed"
+                : "describe transtion flow",
             id: edgeId,
             type: "custom-edge",
             source: nodeId,
