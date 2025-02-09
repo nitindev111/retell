@@ -10,9 +10,9 @@ export default function EditableInputCompact({
   style = {},
   updateNodeData,
   id,
-  defaultLabel = "Conversation",
+  data,
 }) {
-  const [label, setLabel] = useState(defaultLabel);
+  const [label, setLabel] = useState(data.label || "Label here");
   const [isEditing, setIsEditing] = useState(false);
 
   const handleBlur = () => {

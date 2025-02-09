@@ -74,6 +74,7 @@ function FlowCanvas() {
       data: {
         name: "New Conversation",
         instruction: { type: "prompt", text: "New conversation node" },
+        label: type,
         edges: [
           {
             condition: "this is some transtion node",
