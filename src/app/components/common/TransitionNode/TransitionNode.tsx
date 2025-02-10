@@ -15,19 +15,14 @@ import {
 import Image from "next/image";
 
 const TransitionNode = ({ data, id, updateTransition, deleteTransition }) => {
-  console.log("data", data);
   const [isEditing, setIsEditing] = useState(false);
   const [transition, setTransition] = useState(
     data.condition || "Describe the transition"
   );
   const handleBlur = () => {
     setIsEditing(false);
-    console.log("ypdate is called", transition);
-    updateTransition(data.id, transition); // Update only data.edges inside Zustand
+    updateTransition(data.id, transition);
   };
-
-  console.log("transition node data", data);
-  console.log("id", id);
 
   return (
     <TransitionNodeContainer>

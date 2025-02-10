@@ -43,21 +43,15 @@ const ConversationNode = ({ data, id, selected }) => {
 
   // Function to update a single transition inside data.edges
   const updateTransition = (edgeId, updatedText) => {
-    console.log("update", edgeId, updatedText);
     const updatedEdges = edges.map((edge) =>
       edge.id === edgeId ? { ...edge, condition: updatedText } : edge
     );
-    console.log("updated", updatedEdges);
     updateNodeData(id, { edges: updatedEdges }); // Update only data.edges
   };
 
   const deleteTransition = (edgeId) => {
     const updatedEdges = edges.filter((edge) => edge.id !== edgeId);
     updateNodeData(id, { edges: updatedEdges }); // Remove transition from data.edges
-  };
-
-  const isValid = () => {
-    console.log("isVAlid");
   };
 
   return (
@@ -134,7 +128,6 @@ const ConversationNode = ({ data, id, selected }) => {
       <Handle
         type="target"
         position={Position.Left}
-        isConnectableEnd
         style={{
           position: "absolute",
           top: "30px",

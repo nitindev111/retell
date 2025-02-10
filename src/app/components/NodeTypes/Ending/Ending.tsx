@@ -2,53 +2,13 @@
 
 import React from "react";
 import { Handle, Position } from "@xyflow/react";
-import {
-  Head,
-  Header,
-  NodeWrapper,
-  TextWrapper,
-  Transitions,
-} from "./Ending.styled";
+import { Header, NodeWrapper } from "./Ending.styled";
 import EditableInputCompact from "../../common/EditableInputCompact/EditableInputCompact";
 import useStore from "@/app/store/store";
-import TransitionNode from "../../common/TransitionNode/TransitionNode";
 import Image from "next/image";
 
 const Ending = ({ data, id, selected }) => {
   const updateNodeData = useStore((state) => state.updateNodeData);
-
-  // Ensure edges exist inside data.edges
-  const edges = data?.edges ? [...data.edges] : [];
-
-  // Function to add a new transition
-  const addTransition = () => {
-    const edgeId = `edge-${Date.now()}`;
-    const newTransition = {
-      id: edgeId,
-      condition: "New Transition",
-      type: "custom-edge",
-      source: edgeId,
-    };
-
-    updateNodeData(id, {
-      edges: [...edges, newTransition], // Append new transition inside data.edges
-    });
-  };
-
-  // Function to update a single transition inside data.edges
-  const updateTransition = (edgeId, updatedText) => {
-    console.log("update", edgeId, updatedText);
-    const updatedEdges = edges.map((edge) =>
-      edge.id === edgeId ? { ...edge, condition: updatedText } : edge
-    );
-    console.log("updated", updatedEdges);
-    updateNodeData(id, { edges: updatedEdges }); // Update only data.edges
-  };
-
-  const deleteTransition = (edgeId) => {
-    const updatedEdges = edges.filter((edge) => edge.id !== edgeId);
-    updateNodeData(id, { edges: updatedEdges }); // Remove transition from data.edges
-  };
 
   return (
     <NodeWrapper selected={selected}>
@@ -65,7 +25,6 @@ const Ending = ({ data, id, selected }) => {
             updateNodeData={updateNodeData}
             id={id}
             data={data}
-            defaultLabel="Ending"
             style={{ color: "var(--state-highlighted-dark)" }}
           />
         </div>

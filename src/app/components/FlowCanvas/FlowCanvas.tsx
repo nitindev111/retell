@@ -93,8 +93,6 @@ function FlowCanvas() {
   };
 
   const handleConnect = (connection: Connection) => {
-    console.log("connect", connection);
-
     const latestNodes = useStore.getState().nodes;
     const updatedNodes = latestNodes.map((node) => ({
       ...node,

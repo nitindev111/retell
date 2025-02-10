@@ -27,10 +27,6 @@ export default function CustomEdge({
     targetX,
     targetY,
   });
-
-  console.log("source", source);
-  console.log("target", target);
-
   const handleDelete = () => {
     setEdges((edges) => edges.filter((e) => e.id !== id));
     removeTargetFromSourceEdge(source, target);

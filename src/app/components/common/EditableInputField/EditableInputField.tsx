@@ -1,18 +1,29 @@
-import React, { useState } from "react";
+"use client"; // Ensure it runs only on the client
+
+import React, { useEffect, useState } from "react";
 import {
   EditableInput,
   EditButton,
   HeaderText,
 } from "./EditableInputField.styled";
 import Image from "next/image";
+import useStore from "@/app/store/store";
 
 export default function EditableInputField() {
-  const [label, setLabel] = useState("Conversation Agent Template");
+  const { template_id, setTemplateId } = useStore();
+  const [label, setLabel] = useState(template_id);
   const [isEditing, setIsEditing] = useState(false);
 
+  // Load saved template_id when component mounts
+  useEffect(() => {
+    setLabel(template_id);
+  }, [template_id]);
+
   const handleBlur = () => {
-    setIsEditing(false); // Save and exit edit mode when input loses focus
+    setIsEditing(false);
+    setTemplateId(label); // Save to Zustand & Local Storage
   };
+
   return (
     <div style={{ display: "flex", alignItems: "center", gap: "8px" }}>
       {isEditing ? (

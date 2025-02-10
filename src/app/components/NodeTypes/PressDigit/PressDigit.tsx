@@ -37,11 +37,9 @@ const PressDigit = ({ data, id, selected }) => {
 
   // Function to update a single transition inside data.edges
   const updateTransition = (edgeId, updatedText) => {
-    console.log("update", edgeId, updatedText);
     const updatedEdges = edges.map((edge) =>
       edge.id === edgeId ? { ...edge, condition: updatedText } : edge
     );
-    console.log("updated", updatedEdges);
     updateNodeData(id, { edges: updatedEdges }); // Update only data.edges
   };
 
@@ -65,7 +63,6 @@ const PressDigit = ({ data, id, selected }) => {
             updateNodeData={updateNodeData}
             id={id}
             data={data}
-            defaultLabel="Press Digit"
             style={{ color: "var(--state-highlighted-dark)" }}
           />
         </div>
