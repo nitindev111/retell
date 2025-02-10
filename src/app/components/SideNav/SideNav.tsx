@@ -12,6 +12,7 @@ type NavItem = {
   label: string;
   icon?: string;
   type: string;
+  disabled?: boolean;
 };
 
 const navItems: NavItem[] = [
@@ -26,6 +27,7 @@ const navItems: NavItem[] = [
     label: "Function",
     icon: "./function.svg",
     type: "function",
+    disabled: true,
   },
   {
     id: 3,
@@ -56,7 +58,11 @@ const SideNav: React.FunctionComponent<{ addNode: (type: string) => void }> = ({
       <NavItemWrapper>
         {navItems.map((item) => {
           return (
-            <NavItem onClick={() => addNode(item.type)} key={item.id}>
+            <NavItem
+              style={{ pointerEvents: item.disabled ? "none" : "all" }}
+              onClick={() => addNode(item.type)}
+              key={item.id}
+            >
               <Image
                 src={item.icon || ""}
                 alt={item.label}
